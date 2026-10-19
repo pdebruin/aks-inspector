@@ -4,6 +4,16 @@ A proof of concept: a stand-alone node view for AKS that shows which pods run on
 
 ![Node view of nodepool1 with the pod details of pdebruin-asp open](docs/screenshot01.png)
 
+## Run it
+
+Needs Node, kubectl on the PATH, a kubeconfig with a current context, and kubelogin for Entra-enabled clusters.
+
+```
+npx aks-inspector
+```
+
+Open the URL it prints. Ctrl+C stops it. It uses the current kubeconfig context.
+
 ## What it does
 
 The page shows one node pool at a time; NAP (Karpenter) pools and AKS agent pools are both recognized. Each node in the pool gets a column with:
@@ -31,15 +41,13 @@ The page requests full pod objects, so everything in a pod spec, including envir
 
 ## Dev setup
 
-Tested on Linux (WSL) with Node 24 and npm 12. Needs kubectl on the PATH, a kubeconfig with a current context, and kubelogin for Entra-enabled clusters.
+Tested on Linux (WSL) with Node 24 and npm 12.
 
 ```
 cd web
 npm ci
 npm start
 ```
-
-Open the URL it prints. Ctrl+C stops it.
 
 Tests and checks: `npm test`, `npm run build`.
 

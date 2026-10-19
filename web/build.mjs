@@ -1,5 +1,5 @@
 import { build } from 'esbuild';
-import { copyFile, mkdir } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 
 await mkdir('dist/www', { recursive: true });
 await build({
@@ -18,3 +18,7 @@ await build({
   format: 'esm',
 });
 for (const f of ['index.html', 'style.css']) await copyFile(`src/www/${f}`, `dist/www/${f}`);
+
+// npm shows the README from the package folder; image paths must be absolute there.
+const readme = await readFile('../README.md', 'utf8');
+await writeFile('README.md', readme.replaceAll('](docs/', '](https://raw.githubusercontent.com/pdebruin/aks-inspector/main/docs/'));

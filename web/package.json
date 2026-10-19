@@ -1,8 +1,12 @@
 {
   "name": "aks-inspector",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
   "description": "Stand-alone node view for AKS, served through kubectl proxy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdebruin/aks-inspector.git",
+    "directory": "web"
+  },
   "type": "module",
   "bin": {
     "aks-inspector": "dist/cli.js"
