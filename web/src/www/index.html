@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>aks-inspector</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <strong>aks-inspector</strong>
+      <span id="context" class="muted"></span>
+      <span id="live" class="muted"></span>
+    </header>
+    <main>
+      <section class="title">
+        <div>
+          <h1>Node view</h1>
+          <p id="counts" class="lead"></p>
+        </div>
+        <label class="small muted">Node pool <select id="pool"></select></label>
+      </section>
+      <p class="small muted">
+        Node agents are DaemonSet pods, one per node. A colored edge marks a workload that runs on more than one
+        node. Requests are shown as CPU · memory.
+      </p>
+      <div id="main"><p class="muted">Loading nodes and pods…</p></div>
+    </main>
+    <dialog id="details"></dialog>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

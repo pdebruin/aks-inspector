@@ -1,0 +1,24 @@
+{
+  "name": "aks-inspector",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Stand-alone node view for AKS, served through kubectl proxy",
+  "type": "module",
+  "bin": {
+    "aks-inspector": "dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --noEmit && node build.mjs",
+    "start": "npm run build && node dist/cli.js",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
